@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+          <!-- Purchase Requisition User_id group modification  -->
+
+        <record id="view_hr_pret_form_group_user_inherit" model="ir.ui.view">
+            <field name="name">hr.pret.form.group.user</field>
+            <field name="model">hr.pret</field>
+            <field name="inherit_id" ref="ics_pret.hr_pret_form_view"/>
+            <field name="groups_id" eval="[(6,0,[ref('hr.group_hr_user')])]" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='employee_account_id']" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='treasury_account_id']" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='journal_id']" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="view_hr_pret_form_group_manager_inherit" model="ir.ui.view">
+            <field name="name">shr.pret.form.group.manager</field>
+            <field name="model">hr.pret</field>
+            <field name="inherit_id" ref="ics_pret.hr_pret_form_view"/>
+            <field name="groups_id" eval="[(6,0,[ref('hr.group_hr_manager')])]" />
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='employee_account_id']" position="attributes">
+                      <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='treasury_account_id']" position="attributes">
+                      <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='journal_id']" position="attributes">
+                      <attribute name="invisible">0</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
