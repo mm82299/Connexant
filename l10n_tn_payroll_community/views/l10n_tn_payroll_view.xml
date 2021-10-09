@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+    <record id="hr_contract_view_form_l10n_tn_paroll" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.l10n.tn.paye</field>
+            <field name="model">hr.contract</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="hr_payroll_community.hr_contract_form_inherit"/>
+            <field name="arch" type="xml">
+			       <xpath expr="//field[@name='schedule_pay']" position="after">
+				    <field name="nationalite" placeholder="e.g. Tunisienne"/>
+				   </xpath>
+                 <xpath expr="//field[@name='struct_id']" position="after">
+				    <field name="qualif"/>
+                    <field name="niveau"/>
+                    <field name="coef"/>
+				   </xpath>
+
+
+            </field>
+        </record>
+
+		 <record id="hr_payslip_form_l10n_tn_payroll" model="ir.ui.view">
+            <field name="name">hr.payslip.form.l10n.tn.paye</field>
+            <field name="model">hr.payslip</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="hr_payroll_community.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+            <data>
+                 <xpath expr="//field[@name='paid']" position="after">
+                     <field name="payment_mode"/>
+                 </xpath>
+            </data>
+            </field>
+        </record>
+
+		<record id="res_company_form_l10n_tn_payroll" model="ir.ui.view">
+            <field name="name">res.company.form.l10n.tn.paye</field>
+            <field name="model">res.company</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+            <data>
+                     <notebook colspan="4" position="inside">
+                   <page name="HR Configuration">
+                    <group string="Paie">
+                            <field name="plafond_secu"/>
+                            <field name="nombre_employes"/>
+                            <newline/>
+                            <field name="org_ss"/>
+                            <newline/>
+                            <field name="conv_coll"/>
+                    </group>
+                   </page>
+                     </notebook>
+            </data>
+            </field>
+        </record>
+		<record id="hr_employee_form_l10n_tn_payroll" model="ir.ui.view">
+            <field name="name">hr.employee.form.l10n.tn.paye</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">30</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+				<field name="identification_id" position="after">
+				   <field name="matricule_cnss" placeholder="10 chiffres"/>
+				</field>
+				<field name="bank_account_id" position="after">
+				   <field name="num_chezemployeur" string="Numéro chez l'employeur"/>
+				</field>
+			</field>
+		</record>
+      <record id="hr_employee_public_form_l10n_tn_payroll" model="ir.ui.view">
+            <field name="name">hr.employee.public.form.l10n.tn.paye</field>
+            <field name="model">hr.employee.public</field>
+            <field name="priority">30</field>
+            <field name="inherit_id" ref="hr.hr_employee_public_view_form"/>
+            <field name="arch" type="xml">
+				<field name="active" position="after">
+				   <field name="matricule_cnss" placeholder="10 chiffres"/>
+                    <field name="num_chezemployeur" string="Numéro chez l'employeur"/>
+				</field>
+
+			</field>
+		</record>
+  </data>
+</odoo>

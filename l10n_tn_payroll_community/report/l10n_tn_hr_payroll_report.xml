@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <report 
+            id="action_report_report_l10ntnfichepaye"
+            model="hr.payslip" 
+            string="Fiche de paie Tunisienne"
+            report_type="qweb-pdf"
+            name="l10n_tn_payroll_community.report_l10n_tn_fiche_paye"
+            file="l10n_tn_payroll_community.report_l10n_tn_fiche_paye"
+        />
+</odoo>
