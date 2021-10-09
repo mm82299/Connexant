@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="tn_global_tax_invoice_supplier_purchase_form" model="ir.ui.view">
+            <field name="name">ks.global_tax.invoice.account.move</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="////form/sheet/notebook/page[1]/group" position="after">
+                    <div class="tn_container">
+                       <field name="tn_enable_tax" invisible="1"/>
+                       <field name="tn_amount_global_tax" invisible="1"/>
+<!--                        <label for="tn_global_tax_rate" string="Tunisia Tax (%):"-->
+<!--                               attrs="{'invisible':[('tn_enable_tax','!=',True),('tn_amount_global_tax','=',0)]}"/>-->
+<!--                        <field name="tn_global_tax_rate" class="oe_inline" attrs="{'invisible':[('tn_enable_tax','!=',True),('tn_amount_global_tax','=',0)],-->
+<!--                                                                                         'readonly':['|', ('tn_enable_tax','!=',True),('state','in',['posted', 'cancel'])]}"/>-->
+
+                    </div>
+                </xpath>
+<!--                <xpath expr="//field[@name='tax_line_ids']" position="attributes">-->
+<!--                    <attribute name="class">tn_margin</attribute>-->
+<!--                </xpath>-->
+                <xpath expr="//group[@class='oe_subtotal_footer']/field[@name='amount_by_group']" position="after">
+                    <field name="tn_amount_global_tax" attrs="{'invisible':['|',('tn_enable_tax','=',False),('tn_amount_global_tax','=',0)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
