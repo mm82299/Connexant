@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_pret_user,hr.pret.group_user,model_hr_pret,base.group_user,1,1,1,0
+access_hr_jobuser,hr.job.group_user,hr.model_hr_job,base.group_user,1,1,1,0
+access_hr_pret_line_user,hr.pret.line.group_user,model_hr_pret_line,base.group_user,1,1,0,0
+access_hr_pret_officer,hr.pret.group_hr_user,model_hr_pret,hr.group_hr_user,1,1,1,1
+access_hr_pret_line_officer,hr.pret.line.group_hr_user,model_hr_pret_line,hr.group_hr_user,1,1,1,1
+access_hr_pret_manager,hr.pret,model_hr_pret,hr.group_hr_manager,1,1,1,1
+access_hr_pret_line_manager,hr.pret.line,model_hr_pret_line,hr.group_hr_manager,1,1,1,1
