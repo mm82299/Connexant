@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+          <!-- Purchase Requisition User_id group modification  -->
+
+        <record id="view_salary_advance_form_group_user" model="ir.ui.view">
+            <field name="name">salary.advance.form.group.user</field>
+            <field name="model">salary.advance</field>
+            <field name="inherit_id" ref="ics_salary_advance.view_salary_advance_form"/>
+            <field name="groups_id" eval="[(6,0,[ref('hr.group_hr_user')])]" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                      <attribute name="readonly">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="view_salary_advance_form_group_user_restriction" model="ir.ui.view">
+            <field name="name">salary.advance.form.group.user</field>
+            <field name="model">salary.advance</field>
+            <field name="inherit_id" ref="ics_salary_advance.view_salary_advance_form"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                      <attribute name="readonly">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="view_salary_advance_form_group_manager" model="ir.ui.view">
+            <field name="name">salary.advance.form.group.manager</field>
+            <field name="model">salary.advance</field>
+            <field name="inherit_id" ref="ics_salary_advance.view_salary_advance_form"/>
+            <field name="groups_id" eval="[(6,0,[ref('hr.group_hr_manager')])]" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                      <attribute name="readonly">0</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
